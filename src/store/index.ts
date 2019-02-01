@@ -3,18 +3,14 @@ import { all, fork } from 'redux-saga/effects'
 
 import { LayoutState, layoutReducer } from './layout'
 
-import heroesSaga from './heroes/sagas'
-import { heroesReducer } from './heroes/reducer'
-import { HeroesState } from './heroes/types'
-import teamsSaga from './teams/sagas'
-import { TeamsState } from './teams/types'
-import { teamsReducer } from './teams/reducer'
+import exampleSaga from './example/sagas'
+import { exampleReducer } from './example/reducer'
+import { ExampleState } from './example/types'
 
 // The top-level state object
 export interface ApplicationState {
   layout: LayoutState
-  heroes: HeroesState
-  teams: TeamsState
+  example: ExampleState
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -27,13 +23,12 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 // the reducer acts on the corresponding ApplicationState property type.
 export const rootReducer = combineReducers<ApplicationState>({
   layout: layoutReducer,
-  heroes: heroesReducer,
-  teams: teamsReducer
+  example: exampleReducer
 })
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
 // "generator function", which you can read about here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(heroesSaga), fork(teamsSaga)])
+  yield all([fork(exampleSaga)])
 }

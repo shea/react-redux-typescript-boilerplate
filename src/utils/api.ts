@@ -1,10 +1,8 @@
-export async function callApi(method: string, url: string, path: string, data?: any) {
-  const res = await fetch(url + '/api' + path, {
-    method,
-    headers: {
-      Accept: 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  return await res.json()
+// Placeholder call to external service
+// Returns an example response after a short delay
+// Replace this with your actual API call
+export async function callApi() {
+  const sleep = async (ms: number) => new Promise(r => setTimeout(r, ms))
+  await sleep(1000)
+  return { example: true }
 }
