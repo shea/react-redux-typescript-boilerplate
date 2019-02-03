@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from '../../utils/styled'
-import LayoutContainer from '../../containers/LayoutContainer'
 import Container from './Container'
 import { css } from 'emotion'
 
@@ -23,18 +22,7 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
           Example
         </HeaderNavLink>
       </HeaderNav>
-      <HeaderRight>
-        <LayoutContainer>
-          {({ theme, setTheme }) => (
-            <React.Fragment>
-              <CurrentTheme>Current theme: {theme}</CurrentTheme>
-              <ThemeSwitcherButton onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-                Switch theme
-              </ThemeSwitcherButton>
-            </React.Fragment>
-          )}
-        </LayoutContainer>
-      </HeaderRight>
+      <HeaderRight />
     </HeaderInner>
   </Wrapper>
 )
@@ -87,28 +75,4 @@ const HeaderRight = styled('div')`
 const Title = styled('h2')`
   margin: 0;
   font-weight: 500;
-`
-
-const CurrentTheme = styled('span')`
-  margin-right: 1rem;
-`
-
-const ThemeSwitcherButton = styled('button')`
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid ${props => props.theme.colors.white};
-  border-radius: 3px;
-  background-color: ${props => props.theme.colors.white};
-  color: ${props => props.theme.colors.brand};
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover,
-  &:focus {
-    background-color: transparent;
-    color: ${props => props.theme.colors.white};
-  }
 `

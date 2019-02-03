@@ -7,13 +7,10 @@ import { ThemeProvider } from 'emotion-theming'
 
 import Routes from './routes'
 import { ApplicationState } from './store'
-import { ThemeColors } from './store/layout'
 import * as themes from './styles/theme'
 
 // Separate props from state and props from dispatch to their own interfaces.
-interface PropsFromState {
-  theme: ThemeColors
-}
+interface PropsFromState {}
 
 interface PropsFromDispatch {
   [key: string]: any
@@ -47,9 +44,7 @@ class Main extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ layout }: ApplicationState) => ({
-  theme: layout.theme
-})
+const mapStateToProps = () => ({})
 
 // Normally you wouldn't need any generics here (since types infer from the passed functions).
 // But since we pass some props from the `index.js` file, we have to include them.
