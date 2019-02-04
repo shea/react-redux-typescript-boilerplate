@@ -1,12 +1,17 @@
-# react-redux-typescript-example
+# react-redux-typescript-boilerplate
 
-> Demonstrating the common patterns when using React, Redux v4, and TypeScript.
+Welcome to the Redux + TypeScript boilerplate.
 
-Welcome to the Redux 4 + TypeScript 2.9 example! This example site shows you the ideal
-project structure, recommended libraries, as well as design pattern on writing type-safe
-React + Redux app with TypeScript.
+This project is based on [react-redux-typescript-example](https://github.com/resir014/react-redux-typescript-example)
+by Resi Respati, example code for their excellent [post](https://resir014.xyz/posts/2018/07/06/redux-4-plus-typescript/)
+on setting up React with Redux and TypeScript.
 
-This project is intended as a supplement to [this post](https://resir014.xyz/posts/2018/07/06/redux-4-plus-typescript/). To demonstrate it, I created a website which pulls data from the [OpenDota API](https://docs.opendota.com), and display information like professional teams, heroes, as well as top players by hero. This will also demonstrate how to structure your stores for each feature/module in a Redux-enabled app.
+Does the world need another React / Redux boilerplate? Apparently so, this one uses Typescript!
+This is meant as a quick way to get a project started. It uses:
+
+* Redux Saga
+* React Router
+* Emotion
 
 This project was bootstrapped with [Parcel](https://parceljs.org/).
 
