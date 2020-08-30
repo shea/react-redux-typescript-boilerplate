@@ -6,16 +6,16 @@ import { callApi } from '../../utils/api'
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
-    const res = yield call(callApi)
+    const response = yield call(callApi)
 
-    if (res.error) {
-      yield put(fetchError(res.error))
+    if (response.error) {
+      yield put(fetchError(response.error))
     } else {
-      yield put(fetchSuccess(res))
+      yield put(fetchSuccess(response))
     }
-  } catch (err) {
-    if (err instanceof Error) {
-      yield put(fetchError(err.stack!))
+  } catch (error) {
+    if (error instanceof Error) {
+      yield put(fetchError(error.stack!))
     } else {
       yield put(fetchError('An unknown error occured.'))
     }

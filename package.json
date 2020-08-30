@@ -27,6 +27,7 @@
   "scripts": {
     "start": "parcel public/index.html --no-autoinstall",
     "build": "parcel build public/index.html --no-autoinstall",
+    "lint": "xo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": {
@@ -55,10 +56,12 @@
     "@types/react-router-dom": "^5.1.5",
     "babel-plugin-emotion": "^10.0.33",
     "babel-plugin-transform-node-env-inline": "^0.4.3",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
     "parcel-bundler": "^1.12.4",
-    "tslint": "^5.20.1",
-    "tslint-config-blvd": "^1.2.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.9.7"
+    "prettier": "^2.1.1",
+    "typescript": "^3.9.7",
+    "xo": "^0.33.0"
   }
 }

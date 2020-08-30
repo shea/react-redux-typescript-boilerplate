@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Root from './components/layout/Root'
 import Header from './components/layout/Header'
-import IndexPage from './pages/index'
+import IndexPage from './pages'
 import ExamplePage from './pages/example'
 
 // If your app is big + you have routes with a lot of components, you should consider

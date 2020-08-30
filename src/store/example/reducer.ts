@@ -5,22 +5,26 @@ import { ExampleState, ExampleActionTypes } from './types'
 const initialState: ExampleState = {
   data: [],
   errors: undefined,
-  loading: false
+  loading: false,
 }
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
+// eslint-disable-next-line @typescript-eslint/default-param-last
 const reducer: Reducer<ExampleState> = (state = initialState, action) => {
   switch (action.type) {
     case ExampleActionTypes.FETCH_REQUEST: {
       return { ...state, loading: true }
     }
+
     case ExampleActionTypes.FETCH_SUCCESS: {
       return { ...state, loading: false, data: action.payload }
     }
+
     case ExampleActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload }
     }
+
     default: {
       return state
     }

@@ -1,0 +1,19 @@
+{
+  "envs": ["browser"],
+  "extends": "xo-react",
+  "prettier": true,
+  "rules": {
+    "capitalized-comments": 0,
+    "no-promise-executor-return": 1,
+    "react/prop-types": 0,
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ]
+  }
+}

@@ -18,7 +18,7 @@ export type ApiResponse = Record<string, any>
 export const enum ExampleActionTypes {
   FETCH_REQUEST = '@@example/FETCH_REQUEST',
   FETCH_SUCCESS = '@@example/FETCH_SUCCESS',
-  FETCH_ERROR = '@@example/FETCH_ERROR'
+  FETCH_ERROR = '@@example/FETCH_ERROR',
 }
 
 // Declare state types with `readonly` modifier to get compile time immutability.

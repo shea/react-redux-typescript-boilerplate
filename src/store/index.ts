@@ -24,7 +24,7 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 export const rootReducer = (history: History) =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
-    example: exampleReducer
+    example: exampleReducer,
   })
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a

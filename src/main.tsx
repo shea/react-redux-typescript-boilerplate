@@ -9,9 +9,6 @@ import Routes from './routes'
 import { ApplicationState } from './store'
 import * as themes from './styles/theme'
 
-// Separate props from state and props from dispatch to their own interfaces.
-interface PropsFromState {}
-
 interface PropsFromDispatch {
   [key: string]: any
 }
@@ -23,7 +20,7 @@ interface OwnProps {
 }
 
 // Create an intersection type of the component props and our Redux props.
-type AllProps = PropsFromState & PropsFromDispatch & OwnProps
+type AllProps = PropsFromDispatch & OwnProps
 
 class Main extends React.Component<AllProps> {
   public render() {
