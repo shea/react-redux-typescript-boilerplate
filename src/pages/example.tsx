@@ -31,7 +31,9 @@ class ExamplePage extends React.Component<AllProps> {
     return (
       <Page>
         <Container>
-          <button onClick={() => this.props.fetchRequest()}>Example</button>
+          <button type="button" onClick={() => this.props.fetchRequest()}>
+            Example
+          </button>
           {loading && (
             <LoadingOverlay>
               <LoadingOverlayInner>
@@ -49,18 +51,15 @@ class ExamplePage extends React.Component<AllProps> {
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ example }: ApplicationState) => ({
-  loading: example.loading
+  loading: example.loading,
 })
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRequest: () => dispatch(fetchRequest())
+  fetchRequest: () => dispatch(fetchRequest()),
 })
 
 // Now let's connect our component!
 // With redux v4's improved typings, we can finally omit generics here.
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExamplePage)
+export default connect(mapStateToProps, mapDispatchToProps)(ExamplePage)

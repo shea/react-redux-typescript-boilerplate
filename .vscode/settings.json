@@ -20,5 +20,6 @@
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true
-  }
+  },
+  "xo.enable": true
 }

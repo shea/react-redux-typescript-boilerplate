@@ -3,7 +3,7 @@ import Page from '../components/layout/Page'
 import Container from '../components/layout/Container'
 import styled from '../utils/styled'
 
-export default () => (
+const HomePage = () => (
   <Page>
     <Container>
       <PageContent>
@@ -34,14 +34,15 @@ export default () => (
     </Container>
   </Page>
 )
+export default HomePage
 
 const PageContent = styled('article')`
-  max-width: ${props => props.theme.widths.md};
+  max-width: ${(props) => props.theme.widths.md};
   margin: 0 auto;
   line-height: 1.6;
 
   a {
-    color: ${props => props.theme.colors.brand};
+    color: ${(props) => props.theme.colors.brand};
   }
 
   h1,
@@ -49,7 +50,7 @@ const PageContent = styled('article')`
   h3,
   h4 {
     margin-bottom: 0.5rem;
-    font-family: ${props => props.theme.fonts.headings};
+    font-family: ${(props) => props.theme.fonts.headings};
     line-height: 1.25;
   }
 `

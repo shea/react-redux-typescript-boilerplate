@@ -31,9 +31,9 @@ export default Header
 
 const Wrapper = styled('header')`
   padding: 0.5rem 1.5rem;
-  background-color: ${props => props.theme.colors.brand};
-  color: ${props => props.theme.colors.white};
-  font-family: ${props => props.theme.fonts.headings};
+  background-color: ${(props) => props.theme.colors.brand};
+  color: ${(props) => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.headings};
 `
 
 const HeaderInner = styled(Container)`
@@ -42,7 +42,7 @@ const HeaderInner = styled(Container)`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
     flex-direction: row;
   }
 `
@@ -55,7 +55,7 @@ const HeaderNav = styled('nav')`
   flex: 1 1 auto;
   margin: 1rem 0;
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
     margin: 0;
   }
 `
