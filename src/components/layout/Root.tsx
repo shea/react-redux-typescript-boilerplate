@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from '../../utils/styled'
 
-interface RootProps {
+interface Props {
   className?: string
 }
 
-const Root: React.SFC<RootProps> = ({ children }) => <Wrapper>{children}</Wrapper>
+const Root: React.FC<Props> = ({ children }) => <Wrapper>{children}</Wrapper>
 
 export default Root
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { Store } from 'redux'
 import { History } from 'history'
@@ -9,43 +9,26 @@ import Routes from './routes'
 import { ApplicationState } from './store'
 import * as themes from './styles/theme'
 
-interface PropsFromDispatch {
-  [key: string]: any
-}
-
-// Any additional component props go here.
-interface OwnProps {
+// Interface for properties passed to the main component
+interface Props {
+  /** Store for the Redux store provider */
   store: Store<ApplicationState>
+  /** History object for React-Router provider */
   history: History
+  /** The theme name for the theme provider */
+  theme: string
 }
 
-// Create an intersection type of the component props and our Redux props.
-type AllProps = PropsFromDispatch & OwnProps
-
-class Main extends React.Component<AllProps> {
-  public render() {
-    const { store, history, theme } = this.props
-
-    return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <ThemeProvider theme={themes[theme]}>
-            <Routes />
-          </ThemeProvider>
-        </ConnectedRouter>
-      </Provider>
-    )
-  }
+const Main: React.FC<Props> = ({ store, history, theme }) => {
+  return (
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <ThemeProvider theme={themes[theme]}>
+          <Routes />
+        </ThemeProvider>
+      </ConnectedRouter>
+    </Provider>
+  )
 }
 
-// It's usually good practice to only include one context at a time in a connected component.
-// Although if necessary, you can always include multiple contexts. Just make sure to
-// separate them from each other to prevent prop conflicts.
-const mapStateToProps = () => ({})
-
-// Normally you wouldn't need any generics here (since types infer from the passed functions).
-// But since we pass some props from the `index.js` file, we have to include them.
-// For an example of a `connect` function without generics, see `./containers/LayoutContainer`.
-export default connect<PropsFromState, PropsFromDispatch, OwnProps, ApplicationState>(
-  mapStateToProps
-)(Main)
+export default Main

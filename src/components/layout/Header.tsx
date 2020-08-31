@@ -4,11 +4,18 @@ import styled from '../../utils/styled'
 import Container from './Container'
 import { css } from 'emotion'
 
-interface HeaderProps {
+// Interface for the props available on this component
+interface Props {
+  /** The header title text */
   title: string
 }
 
-const Header: React.SFC<HeaderProps> = ({ title }) => (
+/**
+ * Page header component that accepts a title prop
+ *
+ * @param props
+ */
+const Header: React.FC<Props> = ({ title }) => (
   <Wrapper>
     <HeaderInner>
       <HeaderLeft>

@@ -3,7 +3,7 @@ import Page from '../components/layout/Page'
 import Container from '../components/layout/Container'
 import styled from '../utils/styled'
 
-const HomePage = () => (
+const HomePage: React.FC = () => (
   <Page>
     <Container>
       <PageContent>

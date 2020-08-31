@@ -2,7 +2,7 @@ import * as React from 'react'
 import { keyframes } from 'emotion'
 import styled from '../../utils/styled'
 
-const LoadingSpinner: React.SFC = () => (
+const LoadingSpinner: React.FC = () => (
   <Spinner>
     <div className="cube1" />
     <div className="cube2" />

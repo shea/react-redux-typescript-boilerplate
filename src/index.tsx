@@ -5,6 +5,7 @@ import { createHashHistory } from 'history'
 import Main from './main'
 import configureStore from './configureStore'
 
+// Import the styles module to inject the global CSS styles
 // eslint-disable-next-line import/no-unassigned-import
 import './styles'
 
@@ -16,6 +17,7 @@ const initialState = window.initialReduxState
 const store = configureStore(history, initialState)
 const theme = 'light'
 
+// Render the root React node
 ReactDOM.render(
   <Main store={store} history={history} theme={theme} />,
   document.querySelector('#root')

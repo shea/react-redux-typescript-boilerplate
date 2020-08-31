@@ -15,7 +15,7 @@ import ExamplePage from './pages/example'
 // The given `pages/` directory provides an example of a directory structure that's easily
 // code-splittable.
 
-const Routes: React.SFC = () => (
+const Routes: React.FC = () => (
   <Root>
     <Header title="Example App" />
     <Switch>
