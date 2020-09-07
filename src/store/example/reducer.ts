@@ -1,5 +1,7 @@
 import { Reducer } from 'redux'
-import { ExampleState, ExampleActionTypes } from './types'
+import { getType } from 'typesafe-actions'
+import { ExampleState } from './types'
+import * as actions from './actions'
 
 // Type-safe initialState!
 const initialState: ExampleState = {
@@ -11,17 +13,17 @@ const initialState: ExampleState = {
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
 // eslint-disable-next-line @typescript-eslint/default-param-last
-const reducer: Reducer<ExampleState> = (state = initialState, action) => {
+const exampleReducer: Reducer<ExampleState> = (state = initialState, action) => {
   switch (action.type) {
-    case ExampleActionTypes.FETCH_REQUEST: {
+    case getType(actions.fetchRequest): {
       return { ...state, loading: true }
     }
 
-    case ExampleActionTypes.FETCH_SUCCESS: {
+    case getType(actions.fetchSuccess): {
       return { ...state, loading: false, data: action.payload }
     }
 
-    case ExampleActionTypes.FETCH_ERROR: {
+    case getType(actions.fetchError): {
       return { ...state, loading: false, errors: action.payload }
     }
 
@@ -31,6 +33,4 @@ const reducer: Reducer<ExampleState> = (state = initialState, action) => {
   }
 }
 
-// Instead of using default export, we use named exports. That way we can group these exports
-// inside the `index.js` folder.
-export { reducer as exampleReducer }
+export default exampleReducer

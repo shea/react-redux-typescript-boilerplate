@@ -2,7 +2,7 @@ import { combineReducers, Dispatch, Action, AnyAction } from 'redux'
 import { all, fork } from 'redux-saga/effects'
 
 import exampleSaga from './example/sagas'
-import { exampleReducer } from './example/reducer'
+import exampleReducer from './example/reducer'
 import { ExampleState } from './example/types'
 import { connectRouter } from 'connected-react-router'
 import { History } from 'history'

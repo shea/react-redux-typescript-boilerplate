@@ -1,7 +1,7 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
-import { ExampleActionTypes } from './types'
-import { fetchError, fetchSuccess } from './actions'
+import { getType } from 'typesafe-actions'
 import { callApi } from '../../utils/api'
+import * as actions from './actions'
 
 function* handleFetch() {
   try {
@@ -9,15 +9,16 @@ function* handleFetch() {
     const response = yield call(callApi)
 
     if (response.error) {
-      yield put(fetchError(response.error))
+      // Dispatch a new action with `put()`.
+      yield put(actions.fetchError(response.error))
     } else {
-      yield put(fetchSuccess(response))
+      yield put(actions.fetchSuccess(response))
     }
   } catch (error) {
     if (error instanceof Error) {
-      yield put(fetchError(error.stack!))
+      yield put(actions.fetchError(error.stack!))
     } else {
-      yield put(fetchError('An unknown error occured.'))
+      yield put(actions.fetchError('An unknown error occured.'))
     }
   }
 }
@@ -25,7 +26,7 @@ function* handleFetch() {
 // This is our watcher function. We use `take*()` functions to watch Redux for a specific action
 // type, and run our saga, for example the `handleFetch()` saga above.
 function* watchFetchRequest() {
-  yield takeEvery(ExampleActionTypes.FETCH_REQUEST, handleFetch)
+  yield takeEvery(getType(actions.fetchRequest), handleFetch)
 }
 
 // We can also use `fork()` here to split our saga into multiple watchers.
